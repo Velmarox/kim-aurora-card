@@ -1,0 +1,30 @@
+KIM ALLEN - AURORA DIGITAL CARD - CHANGELOG
+Versioning scheme: v#.#.#-[stage] (semver)
+Patch = fixes | Minor = new content (patch resets) | Major 0 until launch (v1.0.0)
+Stages: -alpha -> -beta at feature-complete -> -rc1 when launch-ready -> v1.0.0 gold
+The live version lives in <meta name="version"> in index.html and here, not in the
+folder name (renaming the root breaks the Firebase and Actions paths).
+Archived copies of outgoing versions live in _version_archive/, never in the working tree.
+
+v0.2.0-alpha (2026-09-06)
+- Promos updated to Aurora's current schedule, matching the demo site build: 3X Points All Day
+  (Mon), Loyalty Rewards Day (Tue), Win-It Wednesdays (Wed), VIP Rewards Day (Thu) and
+  Nifty-Fifty Fridays (Fri, drawings every 30 min 7-9 PM). The old seven-day schedule is gone.
+- Saturday and Sunday now carry no promo. WEEK holds null on those days, the grid renders five
+  tiles instead of seven, and on a weekend the featured panel looks ahead to Monday and relabels
+  itself "Next promo" instead of "Today's featured promo".
+- draws is now minutes past midnight rather than whole hours, so the Friday half-hour drawings
+  count down correctly. Countdown only runs on the day itself.
+- VENUE.promoSub reworded to "Five promos, Monday through Friday. Today's is at the top."
+  (archived: _version_archive/card_v0.1.0-alpha/index.html)
+
+v0.1.0-alpha (2026-09-06)
+- Card built from Aurora Employee Card template tpl-v1.0.0.
+- Filled in the EDIT ME block: Kim Allen, Casino Attendant, weekday evenings
+  4 PM - 12 AM, (406) 860-7283. Links left as Aurora's shared three.
+- Headshot added from 03 Working/Kimmy.png (600px square, inlined as JPEG).
+- Removed the Email tab at Kim's request: the button, the mailto wiring, the
+  PERSON.email field and the vCard EMAIL line. Contact row is now Call / Text
+  on a two-column grid.
+- Firebase project set to kim-aurora.
+- PREVIEW badge left ON.

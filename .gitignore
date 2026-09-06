@@ -1,0 +1,17 @@
+# Logs
+*.log
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Firebase cache
+.firebase/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db

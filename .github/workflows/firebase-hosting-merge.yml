@@ -1,0 +1,21 @@
+# Deploys the card whenever main is pushed.
+# Replace kim-aurora (two places) with this card's Firebase project ID,
+# and add the matching service-account secret in the GitHub repo settings.
+name: Deploy to Firebase Hosting on merge
+on:
+  push:
+    branches: [ main ]
+permissions:
+  checks: write
+  contents: read
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KIM_AURORA }}
+          channelId: live
+          projectId: kim-aurora
