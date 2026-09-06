@@ -6,6 +6,10 @@ The live version lives in <meta name="version"> in index.html and here, not in t
 folder name (renaming the root breaks the Firebase and Actions paths).
 Archived copies of outgoing versions live in _version_archive/, never in the working tree.
 
+v1.0.0 (2026-09-06)
+- Launch. PREVIEW badge off on both faces, so the card is live rather than a mockup.
+  (archived: _version_archive/card_v0.2.0-alpha/index.html)
+
 v0.2.0-alpha (2026-09-06)
 - Promos updated to Aurora's current schedule, matching the demo site build: 3X Points All Day
   (Mon), Loyalty Rewards Day (Tue), Win-It Wednesdays (Wed), VIP Rewards Day (Thu) and
