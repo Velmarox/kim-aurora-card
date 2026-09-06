@@ -6,11 +6,26 @@ The live version lives in <meta name="version"> in index.html and here, not in t
 folder name (renaming the root breaks the Firebase and Actions paths).
 Archived copies of outgoing versions live in _version_archive/, never in the working tree.
 
-v1.0.0 (2026-09-06)
+v1.0.2 (2026-09-05)
+- Hosting ignore fix: added "**/.*/**" to firebase.json. The existing "**/.*" only
+  matched dot-named files, not the contents of dot-directories, so the first deploy
+  of this session uploaded all 56 .git/ files to the live site. Redeployed with the
+  fix; the deploy now carries 1 file (index.html) and /.git/* falls through to the
+  catch-all rewrite. No credentials were in the exposed history - the workflows
+  reference secrets by name only.
+  (archived: _version_archive/card_v1.0.1/firebase.json, index.html)
+
+v1.0.1 (2026-09-05)
+- Hours changed: day chip now reads "TBD" and the time chip 5 PM - 2 AM (was
+  "Weekday evenings", 4 PM - 12 AM). Shows on the front chips, the back sheet
+  hours line and the saved contact's NOTE.
+  (archived: _version_archive/card_v1.0.0/index.html)
+
+v1.0.0 (2026-09-05)
 - Launch. PREVIEW badge off on both faces, so the card is live rather than a mockup.
   (archived: _version_archive/card_v0.2.0-alpha/index.html)
 
-v0.2.0-alpha (2026-09-06)
+v0.2.0-alpha (2026-09-05)
 - Promos updated to Aurora's current schedule, matching the demo site build: 3X Points All Day
   (Mon), Loyalty Rewards Day (Tue), Win-It Wednesdays (Wed), VIP Rewards Day (Thu) and
   Nifty-Fifty Fridays (Fri, drawings every 30 min 7-9 PM). The old seven-day schedule is gone.
@@ -22,7 +37,7 @@ v0.2.0-alpha (2026-09-06)
 - VENUE.promoSub reworded to "Five promos, Monday through Friday. Today's is at the top."
   (archived: _version_archive/card_v0.1.0-alpha/index.html)
 
-v0.1.0-alpha (2026-09-06)
+v0.1.0-alpha (2026-09-05)
 - Card built from Aurora Employee Card template tpl-v1.0.0.
 - Filled in the EDIT ME block: Kim Allen, Casino Attendant, weekday evenings
   4 PM - 12 AM, (406) 860-7283. Links left as Aurora's shared three.
