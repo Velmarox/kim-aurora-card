@@ -6,6 +6,15 @@ The live version lives in <meta name="version"> in index.html and here, not in t
 folder name (renaming the root breaks the Firebase and Actions paths).
 Archived copies of outgoing versions live in _version_archive/, never in the working tree.
 
+v1.0.3 (2026-09-05)
+- Hours removed from the card until Kim supplies her real schedule. PERSON.hours is
+  now "" and an empty value drops both front chips, the back sheet hours line and the
+  hours clause in the saved contact's NOTE. The chips are removed from the DOM rather
+  than hidden, so the front closes up with no empty row.
+- To bring them back, put the "Days - Time" string back in PERSON.hours; nothing else
+  needs touching. The EDIT ME comment documents this.
+  (archived: _version_archive/card_v1.0.2/index.html)
+
 v1.0.2 (2026-09-05)
 - Hosting ignore fix: added "**/.*/**" to firebase.json. The existing "**/.*" only
   matched dot-named files, not the contents of dot-directories, so the first deploy

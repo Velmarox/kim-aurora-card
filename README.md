@@ -1,7 +1,7 @@
 # Kim Allen — Aurora digital business card
 
 Single-page card (`index.html`) for Kim Allen, Casino Attendant at Aurora Casino.
-Deployed to Firebase Hosting. Live at v1.0.2 — PREVIEW badge is off.
+Deployed to Firebase Hosting. Live at v1.0.3 — PREVIEW badge is off.
 
 **Live at:** kim-aurora.web.app
 **Firebase project:** kim-aurora

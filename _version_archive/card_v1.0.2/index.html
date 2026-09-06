@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#121212">
-<meta name="version" content="v1.0.3">
+<meta name="version" content="v1.0.2">
 <meta name="description" id="meta-desc" content="Aurora Casino — digital business card, weekly promos, and directions.">
 <title>Kim Allen — Aurora Casino</title>
 
@@ -638,9 +638,6 @@ const PREVIEW = false;
    hours         same shape: text before the dot is the day chip, text after
                  is the time chip. Exactly one dot. Keep it short; long text
                  auto-shrinks but gets hard to read.
-                 Leave it as "" to drop both chips off the front, the hours
-                 line off the back sheet and the hours clause out of the
-                 saved contact. Fill it back in to bring them all back.
    phone         digits only, +1 and area code, no spaces or brackets. This is
                  what the Call and Text buttons dial.
    phoneDisplay  how it reads on the card. Cosmetic only.
@@ -652,7 +649,7 @@ const PERSON = {
   last:         "Allen",
   role:         "Casino Attendant",
   venue:        "Aurora Casino · Billings, Montana",
-  hours:        "",
+  hours:        "TBD · 5 PM – 2 AM",
   phone:        "+14068607283",
   phoneDisplay: "(406) 860-7283",
   links: [
@@ -806,19 +803,11 @@ $('f-venue').textContent = PERSON.venue;
   }
 }
 {
-  const hrs = (PERSON.hours || "").trim();
-  if (hrs){
-    const parts = hrs.split("·").map(s => s.trim());
-    $('f-hours').querySelector('.hdays').textContent = parts[0];
-    $('f-hours').querySelector('.htime span').textContent = parts.slice(1).join(" · ");
-    $('b-hours').querySelector('span').textContent = hrs;
-  } else {
-    /* no schedule yet - take the chips out of the flow entirely so the front
-       doesn't carry an empty row and the back sheet doesn't gap */
-    $('f-hours').remove();
-    $('b-hours').remove();
-  }
+  const parts = PERSON.hours.split("·").map(s => s.trim());
+  $('f-hours').querySelector('.hdays').textContent = parts[0];
+  $('f-hours').querySelector('.htime span').textContent = parts.slice(1).join(" · ");
 }
+$('b-hours').querySelector('span').textContent = PERSON.hours;
 document.title = full + " — " + PERSON.venue.split("·")[0].trim();
 {
   const md = $('meta-desc');
@@ -925,8 +914,7 @@ function buildVcf(){
     "TEL;TYPE=CELL,VOICE:" + PERSON.phone,
     "URL:" + VENUE.website,
     "ADR;TYPE=WORK:;;" + VENUE.street + ";" + VENUE.city + ";" + VENUE.state + ";" + VENUE.zip + ";USA",
-    "NOTE:" + PERSON.role + " at " + VENUE.name + "."
-      + (PERSON.hours.trim() ? " On the floor " + PERSON.hours.replace(/ · /g, ", ") + "." : ""),
+    "NOTE:" + PERSON.role + " at " + VENUE.name + ". On the floor " + PERSON.hours.replace(/ · /g, ", ") + ".",
     "PHOTO;ENCODING=b;TYPE=JPEG:" + PHOTO.split(",")[1],
     "END:VCARD"
   ];
